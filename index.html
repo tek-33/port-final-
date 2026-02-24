@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanjana Konchsila | Computer Science Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a0f1c;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        nav {
+            position: fixed;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #00f7ff;
+            text-decoration: none;
+            font-family: 'Orbitron';
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            text-shadow: 0 0 15px #00f7ff;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 120px 10%;
+        }
+
+        h1 {
+            font-size: 45px;
+            font-family: 'Orbitron';
+            color: #00f7ff;
+            text-shadow: 0 0 20px #00f7ff;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 50px rgba(0, 255, 255, 0.3);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .activity-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+        }
+
+        .activity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 255, 255, 0.5);
+        }
+
+        .activity-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+
+        .activity-images img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        /* ถ้ามีรูปเดียว ให้เต็มความกว้าง */
+        .activity-images:has(img:only-child) {
+            grid-template-columns: 1fr;
+        }
+
+        .activity-images:has(img:only-child) img {
+            height: 350px;
+        }
+
+        .activity-content {
+            padding: 25px;
+        }
+
+        .activity-content h3 {
+            color: #00f7ff;
+            margin-bottom: 15px;
+            font-family: 'Orbitron';
+        }
+
+        .activity-content p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+        }
+
+        @media(max-width:768px) {
+            nav {
+                gap: 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="matrix"></canvas>
+
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#education">EDUCATION</a>
+        <a href="#activities">ACTIVITIES</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+
+    <section id="home">
+        <h1>Kanjana Konchsila</h1>
+        <div class="card">
+            <p>นางสาวกาญจนา คชศิลา</p>
+            <p>Mrs. Kanjana Konchsila</p>
+            <p>ชื่อเล่น: เทค</p>
+            <p>ม.5/8 | วิทยาศาสตร์-คณิตศาสตร์ (แผนเทคโนโลยี)</p>
+            <p>โรงเรียนบางปะกอกวิทยาคม</p>
+            <p>เกิด 4 กุมภาพันธ์ 2552 | อายุ 17 ปี</p>
+            <p>เป้าหมาย: คณะ Computer Science - สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</p>
+        </div>
+    </section>
+
+    <section id="education">
+        <h1>Education</h1>
+        <div class="card">
+            <p><strong>ระดับประถมศึกษา:</strong> สำเร็จการศึกษาจากโรงเรียนขจรโรจน์วิทยา</p>
+            <p><strong>ระดับมัธยมศึกษาตอนต้น:</strong> โรงเรียนบางปะกอกวิทยาคม (GPAX 3.68)</p>
+            <p><strong>ระดับมัธยมศึกษาตอนปลาย:</strong> ม.5/8 สายการเรียนวิทยาศาสตร์-คณิตศาสตร์ (แผนเทคโนโลยี)
+                โรงเรียนบางปะกอกวิทยาคม</p>
+        </div>
+    </section>
+
+    <section id="activities">
+        <h1>Activities & Certificates</h1>
+        <div class="grid">
+
+            <div class="activity-card">
+                <div class="activity-images">
+                    <img src="int.jpg">
+                    <img src="hat.jpg">
+                </div>
+                <div class="activity-content">
+                    <h3>สโมสรอินเตอร์แรคท์ โรงเรียนบางปะกอกวิทยาคม</h3>
+                    <p>เข้าร่วมเป็นสมาชิกสโมสรอินเตอร์แรคท์ของโรงเรียนบางปะกอกวิทยาคม</p>
+                    <p>มีส่วนร่วมในกิจกรรมจิตอาสา และกิจกรรมเพื่อสังคม</p>
+                    <p>เข้าร่วมกิจกรรมเปิดหมวกรับบริจาคเพื่อช่วยเหลือผู้ที่ต้องการความช่วยเหลือ</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-images">
+                    <img src="oph1.jpg">
+                </div>
+                <div class="activity-content">
+                    <h3>ผู้ถ่ายภาพงาน Open House 2025</h3>
+                    <p>ปฏิบัติหน้าที่ถ่ายภาพและเก็บบรรยากาศภายในงาน Open House 2025</p>
+                    <p>โรงเรียนบางปะกอกวิทยาคม</p>
+                    <p>ฝึกทักษะด้านการถ่ายภาพ การทำงานเป็นทีม และความรับผิดชอบ</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-images">
+                    <img src="cert1.jpg">
+                </div>
+                <div class="activity-content">
+                    <h3>เกียรติบัตร คณะวิศวกรรมศาสตร์ มหาวิทยาลัยมหิดล</h3>
+                    <p>เข้าร่วมกิจกรรม/โครงการของคณะวิศวกรรมศาสตร์ มหาวิทยาลัยมหิดล</p>
+                    <p>ได้รับเกียรติบัตรรับรองการเข้าร่วมกิจกรรม</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-images">
+                    <img src="ai.JPG">
+                    <img src="ai1.jpg">
+                    <img src="hydro.jpg">
+                    <img src="hydro1.jpg">
+                </div>
+                <div class="activity-content">
+                    <h3>การอบรม การประยุกต์ใช้ AI เพื่อการเรียนรู้ และการอบรมเชิงปฏิบัติ ศึกแขนกลไฮโดรลิก</h3>
+                    <p>เข้าร่วมการอบรมเกี่ยวกับการประยุกต์ใช้ AI เพื่อการเรียนรู้</p>
+                    <p>เข้าร่วมกิจกรรมการอบรมเชิงปฏิบัติ ศึกแขนกลไฮโดรลิก</p>
+                    <p>ได้รับเกียรติบัตรจากสำนักงานการวิจัยแห่งชาติ (วช.)</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-images">
+                    <img src="ai2.jpg">
+                </div>
+                <div class="activity-content">
+                    <h3>การอบรมเชิงปฏิบัติการ “จุดประกายความคิด ผลิตสื่อด้วย AI”</h3>
+                    <p>มหาวิทยาลัยพระจอมเกล้าพระนครเหนือ ภาควิชาคอมพิวเตอร์ศึกษา ครุศาสตร์อุตสาหกรรม</p>
+                    <p>จัดโดย สำนักงานการวิจัยแห่งชาติ</p>
+                    <p>ได้รับเกียรติบัตรรับรองการเข้าร่วม</p>
+                    <p>มีรูปภาพเกียรติบัตรประกอบ</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-images">
+                    <img src="photoshop.jpg">
+                </div>
+                <div class="activity-content">
+                    <h3>เข้าร่วมการอบรม Photoshop</h3>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-images">
+                    <img src="print3d.jpg">
+                </div>
+                <div class="activity-content">
+                    <h3>เข้าร่วมการอบรมเชิงปฏิบัติการ Basic 3D Printing</h3>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-images">
+                    <img src="volunteer.JPG">
+                </div>
+                <div class="activity-content">
+                    <h3>ช่างภาพและวิดีโอ ค่ายจิตอาสาสิ่งแวดล้อม</h3>
+                    <p>ปฏิบัติหน้าที่ถ่ายภาพและบันทึกวิดีโอ</p>
+                    <p>กิจกรรมจิตอาสาค่ายสิ่งแวดล้อม</p>
+                    <p>ณ อุทยานแห่งชาติเอราวัณ</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h1>Contact</h1>
+        <div class="card">
+            <p>Email: xnstxs@gmail.com</p>
+            <p>Instagram: 4febinwinter</p>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Kanjana Konchsila | Future Computer Science Student
+    </footer>
+
+    <script>
+        const canvas = document.getElementById("matrix");
+        const ctx = canvas.getContext("2d");
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        let letters = "01".split("");
+        let fontSize = 14;
+        let columns = canvas.width / fontSize;
+        let drops = [];
+        for (let x = 0; x < columns; x++)drops[x] = 1;
+        function draw() {
+            ctx.fillStyle = "rgba(10,15,28,0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#00f7ff";
+            ctx.font = fontSize + "px monospace";
+            for (let i = 0; i < drops.length; i++) {
+                let text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 35);
+    </script>
+
+</body>
+
+</html>
