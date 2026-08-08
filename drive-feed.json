@@ -1,17 +1,31 @@
 {
-  "generatedAt": "2026-08-08T14:11:59+07:00",
+  "generatedAt": "2026-08-08T14:16:59+07:00",
   "sourceFolderId": "1HDATNISb4Rb1UkwfDlacDwXCt-M_Wdih",
   "sourceFolderName": "Port",
   "totals": {
-    "files": 20,
+    "files": 21,
     "categories": {
       "cert": 17,
-      "tech": 0,
+      "tech": 1,
       "creative": 0,
       "vol": 3
     }
   },
   "files": [
+    {
+      "id": "1cetURhVHqQaqxA6tQ4EHOEOV-e727HwK",
+      "name": "https:/drive.google.com/file/d/1Mu7p3rZyi3Mx5Jp0ZiMyYlk9AUaTBY9q/view.txt",
+      "mimeType": "text/plain",
+      "size": 70,
+      "category": "tech",
+      "folderName": "Port",
+      "createdTime": "2026-08-08T14:16:11+07:00",
+      "modifiedTime": "2026-08-08T14:16:11+07:00",
+      "webViewLink": "https://drive.google.com/file/d/1cetURhVHqQaqxA6tQ4EHOEOV-e727HwK/view?usp=drivesdk",
+      "directViewLink": "https://drive.google.com/uc?export=view&id=1cetURhVHqQaqxA6tQ4EHOEOV-e727HwK",
+      "thumbnailUrl": "https://drive.google.com/thumbnail?id=1cetURhVHqQaqxA6tQ4EHOEOV-e727HwK&sz=w1200",
+      "source": "drive"
+    },
     {
       "id": "1s22VEsFC3TfJsGwao5WJlFVsoCvwS6Oi",
       "name": "Certificate.png",
